@@ -1,9 +1,14 @@
+# create with *docker build . -t <desiredRepoName>
 FROM ubuntu
 
-RUN apt-get update
-RUN apt-get install gcc
-RUN apt-get install cmake
-RUN apt-get install build-essential
-RUN apt-get install git
+RUN apt-get update -y
+RUN apt-get install gcc -y
+RUN apt-get install cmake -y
+RUN apt-get install build-essential -y
+RUN apt-get install git -y
+
+#adds git repos, but these should probably be in the host filesystem to
+#allow for easier editing of content.  Vim is cool, but not always easy to navigate.
+
 RUN git clone https://github.com/Kitware/CMake.git
 RUN git clone https://github.com/DJTakushi/dockerDemo.git
